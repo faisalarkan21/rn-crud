@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const BASE_URL = 'http://127.0.0.1:8888';
+const BASE_URL = 'http://10.0.2.2:3008/api';
 
 export const getResponse = async params => {
   const data = await Axios.get(`${BASE_URL}${params}`).then(({data}) => data);

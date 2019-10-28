@@ -20,7 +20,8 @@ const AppNavigator = createStackNavigator(
       screen: LoginScreen,
       navigationOptions: {
         title: 'Login',
-        headerTintColor: '#fff',
+        // headerTintColor: '#fff',
+        header: null,
       },
     },
     Home: TabNavigator,
@@ -28,7 +29,7 @@ const AppNavigator = createStackNavigator(
     FlexBoxLearn: FlexDirectionBasics,
   },
   {
-    initialRouteName: 'FlexBoxLearn',
+    initialRouteName: 'Login',
   },
 );
 
