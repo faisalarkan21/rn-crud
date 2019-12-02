@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const BASE_URL = 'http://10.0.2.2:3008/api';
+const BASE_URL = 'http://5d60ae24c2ca490014b27087.mockapi.io/api/v1/';
 
 export const getResponse = async params => {
   const data = await Axios.get(`${BASE_URL}${params}`).then(({data}) => data);

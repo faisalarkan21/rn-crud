@@ -1,4 +1,5 @@
 import React from 'react';
+import {Root} from 'native-base';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
@@ -24,12 +25,27 @@ const AppNavigator = createStackNavigator(
         header: null,
       },
     },
-    Home: TabNavigator,
-    ListUsers: FlatListBasics,
-    FlexBoxLearn: FlexDirectionBasics,
+    Home: {
+      screen: TabNavigator,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    ListUsers: {
+      screen: FlatListBasics,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    FlexBoxLearn: {
+      screen: FlexDirectionBasics,
+      navigationOptions: {
+        header: null,
+      },
+    },
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Home',
   },
 );
 
@@ -40,9 +56,11 @@ const store = configureStore();
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-        <Navigation />
-      </Provider>
+      <Root>
+        <Provider store={store}>
+          <Navigation />
+        </Provider>
+      </Root>
     );
   }
 }

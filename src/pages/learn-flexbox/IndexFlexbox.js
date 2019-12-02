@@ -1,20 +1,60 @@
 import React, {Component} from 'react';
-import {Container, Header, Content, Button, Text} from 'native-base';
-import {View} from 'react-native';
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Button,
+  Icon,
+  Left,
+  Right,
+  Body,
+  Text,
+} from 'native-base';
+import styles from './styles';
 
-export default class ButtonRoundedExample extends Component {
+class Default extends Component {
   render() {
     return (
-      <View style={{flex: 1, flexDirection: 'row'}}>
-        <Container>
-          <Header />
-          <Content>
-            <Button small rounded light>
-              <Text>Light</Text>
+      <Container style={styles.container}>
+        <Header>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.goBack()}>
+              <Icon name="arrow-back" />
             </Button>
-          </Content>
-        </Container>
-      </View>
+          </Left>
+          <Body>
+            <Title>Default</Title>
+          </Body>
+          <Right />
+        </Header>
+
+        <Content padder style={{backgroundColor: '#fff'}}>
+          <Button light style={styles.mb15}>
+            <Text>Light</Text>
+          </Button>
+          <Button info style={styles.mb15}>
+            <Text>Info</Text>
+          </Button>
+          <Button primary style={styles.mb15}>
+            <Text>Primary</Text>
+          </Button>
+          <Button success style={styles.mb15}>
+            <Text>Success</Text>
+          </Button>
+          <Button warning style={styles.mb15}>
+            <Text>Warning</Text>
+          </Button>
+          <Button danger style={styles.mb15}>
+            <Text>Danger</Text>
+          </Button>
+          <Button dark style={styles.mb15}>
+            <Text>Dark</Text>
+          </Button>
+        </Content>
+      </Container>
     );
   }
 }
+
+export default Default;

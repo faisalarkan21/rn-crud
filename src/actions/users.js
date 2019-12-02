@@ -11,8 +11,12 @@ export function getOnUsers(data) {
 
 export function getUsersThunk() {
   return dispatch =>
-    getResponse('http://127.0.0.1:8888/users').then(data => {
-      console.log('data', data);
-      dispatch(getOnUsers(data));
-    });
+    getResponse('users')
+      .then(data => {
+        console.log('data', data);
+        dispatch(getOnUsers(data));
+      })
+      .catch(err => {
+        console.error(err);
+      });
 }
