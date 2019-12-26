@@ -62,7 +62,6 @@ class ListUsers extends Component {
           </Body>
           <Right />
         </Header>
-
         <Content>
           <View style={styles.container}>
             <View style={styles.item}>
@@ -77,9 +76,6 @@ class ListUsers extends Component {
                         <Text>{v.name}</Text>
                         <Text note>{v.email}</Text>
                       </Body>
-                      {/* <Right>
-                        <Text note>{ParsedDateInd(v.createdAt)}</Text>
-                      </Right> */}
                     </ListItem>
                   );
                 })}
@@ -87,17 +83,15 @@ class ListUsers extends Component {
             </View>
           </View>
         </Content>
-        <View style={{flex: 1}}>
-          <Fab
-            active={this.state.active}
-            direction="up"
-            containerStyle={{}}
-            style={{backgroundColor: '#5067FF'}}
-            position="bottomRight"
-            onPress={this.handleActive}>
-            <IconNB name="add-user" />
-          </Fab>
-        </View>
+        <Fab
+          active={this.state.active}
+          direction="up"
+          containerStyle={{}}
+          style={{backgroundColor: '#5067FF'}}
+          position="bottomRight"
+          onPress={this.handleActive}>
+          <IconNB name="add-user" />
+        </Fab>
       </Container>
     );
   }
