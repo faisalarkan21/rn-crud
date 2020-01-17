@@ -12,6 +12,7 @@ import {
   Fab,
   IconNB,
   Button,
+  Icon,
 } from 'native-base';
 import React, {Component} from 'react';
 import {StyleSheet, Text, ScrollView, View} from 'react-native';
@@ -38,7 +39,7 @@ class ListUsers extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: false,
+      activeFab: false,
     };
   }
 
@@ -47,11 +48,16 @@ class ListUsers extends Component {
   }
 
   handleActive = () => {
-    console.log('asasa');
+    // console.log('asasa');
+    this.setState(prevState => ({
+      activeFab: !prevState.activeFab,
+    }));
   };
 
   render() {
     const {getUsers} = this.props;
+    const {activeFab} = this.state;
+
     console.log('this.state', this.state);
     return (
       <Container>
@@ -84,13 +90,22 @@ class ListUsers extends Component {
           </View>
         </Content>
         <Fab
-          active={this.state.active}
+          active={activeFab}
           direction="up"
           containerStyle={{}}
           style={{backgroundColor: '#5067FF'}}
           position="bottomRight"
           onPress={this.handleActive}>
-          <IconNB name="add-user" />
+          <Icon name="share" />
+          <Button style={{backgroundColor: '#34A34F'}}>
+            <Icon name="logo-whatsapp" />
+          </Button>
+          <Button style={{backgroundColor: '#3B5998'}}>
+            <Icon name="logo-facebook" />
+          </Button>
+          <Button disabled style={{backgroundColor: '#DD5144'}}>
+            <Icon name="mail" />
+          </Button>
         </Fab>
       </Container>
     );

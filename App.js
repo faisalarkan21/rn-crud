@@ -4,52 +4,68 @@ import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {Provider} from 'react-redux';
-import HomeScreen from './src/pages/home/IndexHome';
-import FlexDirectionBasics from './src/pages/learn-flexbox/IndexFlexbox';
-import FlatListBasics from './src/pages/list-users/IndexListUsers';
-import LoginScreen from './src/pages/login/IndexLogin';
+import HomeScreen from './src/screens/home/IndexHome';
+import FlexDirectionBasics from './src/screens/learn-flexbox/IndexFlexbox';
+import FlatListBasics from './src/screens/list-users/IndexListUsers';
+import LoginScreen from './src/screens/login/IndexLogin';
 import configureStore from './src/store/configStore';
+import FooterTabsExample from './src/screens/bottom-tab-nav/ButtomTab';
 
-const TabNavigator = createBottomTabNavigator({
-  Home: HomeScreen,
-  ListUsers: FlatListBasics,
-});
-
-const AppNavigator = createStackNavigator(
+const TabNavigator = createBottomTabNavigator(
   {
-    Login: {
-      screen: LoginScreen,
-      navigationOptions: {
-        title: 'Login',
-        // headerTintColor: '#fff',
-        header: null,
-      },
-    },
-    Home: {
-      screen: TabNavigator,
-      navigationOptions: {
-        header: null,
-      },
-    },
-    ListUsers: {
-      screen: FlatListBasics,
-      navigationOptions: {
-        header: null,
-      },
-    },
-    FlexBoxLearn: {
-      screen: FlexDirectionBasics,
-      navigationOptions: {
-        header: null,
-      },
-    },
+    Home: HomeScreen,
+    ListUsers: FlatListBasics,
   },
   {
+    // tabBarOptions: {
+    //   // style: {
+    //   //   marginBottom: 15,
+    //   // },
+    //   labelStyle: {
+    //     fontSize: 13,
+    //     marginBottom: 13,
+    //   },
+    // },
+    tabBarComponent: FooterTabsExample,
     initialRouteName: 'Home',
   },
 );
 
-let Navigation = createAppContainer(AppNavigator);
+// const AppNavigator = createStackNavigator(
+//   {
+//     Login: {
+//       screen: LoginScreen,
+//       navigationOptions: {
+//         title: 'Login',
+//         // headerTintColor: '#fff',
+//         header: null,
+//       },
+//     },
+//     Home: {
+//       screen: HomeScreen,
+//       navigationOptions: {
+//         header: null,
+//       },
+//     },
+//     ListUsers: {
+//       screen: FlatListBasics,
+//       navigationOptions: {
+//         header: null,
+//       },
+//     },
+//     FlexBoxLearn: {
+//       screen: FlexDirectionBasics,
+//       navigationOptions: {
+//         header: null,
+//       },
+//     },
+//   },
+//   {
+//     initialRouteName: 'Home',
+//   },
+// );
+
+let Navigation = createAppContainer(TabNavigator);
 
 const store = configureStore();
 
